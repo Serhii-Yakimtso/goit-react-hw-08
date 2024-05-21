@@ -23,7 +23,7 @@ const ContactsPage = lazy(() =>
 //   import('../../pages/NotFoundPage/NotFoundPage')
 // );
 
-import css from './App.module.css';
+// import css from './App.module.css';
 
 // function App() {
 //   const dispatch = useDispatch();

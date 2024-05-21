@@ -1,0 +1,14 @@
+.nav {
+  display: flex;
+  gap: 16px;
+}
+
+.link {
+  display: block;
+  padding: 8px 4px;
+  border: 1px solid black;
+  border-radius: 4px;
+  line-height: 1;
+
+  background-color: aqua;
+}
