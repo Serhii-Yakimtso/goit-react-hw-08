@@ -1,8 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { logIn, logOut, refreshUser, register } from './operations';
-// import { selectLoading } from '../contacts/selectors';
-
-// seraf113@mail.com
 
 const authSlice = createSlice({
   name: 'auth',

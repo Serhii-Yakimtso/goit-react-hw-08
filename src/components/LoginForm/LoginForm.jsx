@@ -13,7 +13,7 @@ export default function LoginForm() {
       .then(reponse => {
         toast.success(`Success login, ${reponse.user.name}`);
       })
-      .catch(error => {
+      .catch(() => {
         toast.error('Error login. Please, try again');
       });
 

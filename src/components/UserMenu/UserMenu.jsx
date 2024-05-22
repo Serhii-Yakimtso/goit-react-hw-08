@@ -11,10 +11,10 @@ export default function UserMenu() {
   const handleLogout = () => {
     dispatch(logOut())
       .unwrap()
-      .then(reponse => {
+      .then(() => {
         toast.success('Success logout');
       })
-      .catch(error => {
+      .catch(() => {
         toast.error('Error logout. Please, try again');
       });
   };

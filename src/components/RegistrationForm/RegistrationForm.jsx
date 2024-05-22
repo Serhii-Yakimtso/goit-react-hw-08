@@ -13,7 +13,7 @@ export default function RegistrationForm() {
       .then(reponse => {
         toast.success(`Success registred, ${reponse.user.name}`);
       })
-      .catch(error => {
+      .catch(() => {
         toast.error('Error registred. Please, try again');
       });
     actions.resetForm();

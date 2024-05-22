@@ -1,6 +1,3 @@
-// публічний маршрут для логіна існуючого користувача,
-// на якому рендериться компонент сторінки
-// LoginPage з формою LoginForm.
 import PageTitle from '../../components/PageTitle/PageTitle';
 import LoginForm from '../../components/LoginForm/LoginForm';
 
