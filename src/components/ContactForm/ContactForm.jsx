@@ -2,7 +2,7 @@ import { useId } from 'react';
 import { useDispatch } from 'react-redux';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
-import { addContact } from '../../redux/contacts/operations';
+// import { addContact } from '../../redux/contacts/operations';
 import css from './ContactForm.module.css';
 
 const startValues = {
@@ -28,14 +28,14 @@ export default function ContactForm() {
   const dispatch = useDispatch();
 
   const handleSubmit = (values, actions) => {
-    dispatch(addContact(values));
+    // dispatch(addContact(values));
     actions.resetForm();
   };
 
   return (
     <Formik
       initialValues={startValues}
-      onSubmit={handleSubmit}
+      // onSubmit={handleSubmit}
       validationSchema={ContactSchema}
     >
       <Form className={css.form}>

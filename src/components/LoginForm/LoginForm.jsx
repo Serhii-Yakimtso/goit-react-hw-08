@@ -12,10 +12,11 @@ export default function LoginForm() {
       .unwrap()
       .then(reponse => {
         console.log(reponse);
-        toast.success('Success!!!');
+        toast.success(`Success login, ${reponse.user.name}`);
       })
       .catch(error => {
         console.log(error);
+        toast.error('Error login');
       });
 
     actions.resetForm();
