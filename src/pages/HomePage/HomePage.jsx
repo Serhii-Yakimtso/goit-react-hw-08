@@ -6,10 +6,8 @@ export default function HomePage() {
     <div className={css.container}>
       <PageTitle>Your manager of contacts</PageTitle>
       <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus,
-        dolores. Voluptate doloribus maiores porro molestiae similique illum
-        atque! Enim aut repellat laboriosam neque. Fugiat aperiam est accusamus,
-        fuga error debitis!
+        Hello. This is a free application where you can store and manage your
+        contacts
       </p>
     </div>
   );
