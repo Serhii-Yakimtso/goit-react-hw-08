@@ -36,6 +36,7 @@ export const register = createAsyncThunk(
     }
   }
 );
+
 export const logIn = createAsyncThunk(
   'auth/logIn',
   async (userInfo, thunkAPI) => {
@@ -50,6 +51,7 @@ export const logIn = createAsyncThunk(
     }
   }
 );
+
 export const logOut = createAsyncThunk('auth/logOut', async (_, thunkAPI) => {
   try {
     await axios.post('/users/logout');
@@ -59,7 +61,23 @@ export const logOut = createAsyncThunk('auth/logOut', async (_, thunkAPI) => {
     return thunkAPI.rejectWithValue(error.message);
   }
 });
-// export const refreshUser = createAsyncThunk('auth/refresh');
+
+export const refreshUser = createAsyncThunk(
+  'auth/refresh',
+  async (_, thunkAPI) => {
+    const reduxState = thunkAPI.getState();
+    setAuthHeader(reduxState.auth.token);
+
+    const response = await axios.get('/users/me');
+    return response.data;
+  },
+  {
+    condition(_, thunkAPI) {
+      const reduxState = thunkAPI.getState();
+      return reduxState.auth.token !== null;
+    },
+  }
+);
 
 // react1001@mail.com
 // react100@mail.com

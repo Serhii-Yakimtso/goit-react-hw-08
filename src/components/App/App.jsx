@@ -1,14 +1,15 @@
 // import { useEffect } from 'react';
-// import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { lazy, Suspense, useEffect } from 'react';
+import { Route, Routes } from 'react-router-dom';
+import Layout from '../Layout/Layout';
+import { refreshUser } from '../../redux/auth/operations';
+import { selectIsRefreshing } from '../../redux/auth/selectors';
 // import { selectLoading, selectError } from '../../redux/contacts/slice';
 // import { fetchContacts } from '../../redux/contacts/operations';
 // import ContactList from '../ContactList/ContactList';
 // import SearchBox from '../SearchBox/SearchBox';
 // import ContactForm from '../ContactForm/ContactForm';
-
-import { lazy, Suspense } from 'react';
-import { Route, Routes } from 'react-router-dom';
-import Layout from '../Layout/Layout';
 
 const HomePage = lazy(() => import('../../pages/HomePage/HomePage'));
 const RegistrationPage = lazy(() =>
@@ -50,7 +51,16 @@ const ContactsPage = lazy(() =>
 // }
 
 function App() {
-  return (
+  const dispatch = useDispatch();
+  const isRefreshing = useSelector(selectIsRefreshing);
+
+  useEffect(() => {
+    dispatch(refreshUser());
+  }, [dispatch]);
+
+  return isRefreshing ? (
+    <p>Refreshing user, please wait...</p>
+  ) : (
     <Layout>
       <Suspense fallback={null}>
         <Routes>
