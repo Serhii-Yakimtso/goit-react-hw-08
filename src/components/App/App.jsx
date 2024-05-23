@@ -51,7 +51,12 @@ function App() {
           />
           <Route
             path="/contacts"
-            element={<PrivateRoute component={<ContactsPage />} />}
+            element={
+              <PrivateRoute
+                component={<ContactsPage />}
+                redirectTo="/contacts"
+              />
+            }
           />
           {/* <Route path="*" element={<NotFoundPage />} /> */}
         </Routes>
